@@ -617,9 +617,9 @@ export default {
     binaryFileDesc: 'File size {size}. Text editing is unavailable. In Docker sandboxes, access it read-only at {path}.',
     selectFileTitle: 'Select a file to view or edit',
     emptyTitle: 'No skills found in skills/',
-    emptyDesc: 'Skills are loaded directly from backend/skills/ (supporting SKILL.md, scripts/, references/, and any bundled files) without database storage, and baked into Docker images.',
+    emptyDesc: 'Skills are loaded directly from src/skills/ (supporting SKILL.md, scripts/, references/, and any bundled files) without database storage, and baked into Docker images.',
     goSkillsManage: 'Manage Skills',
-    noSkillsAvailable: 'No skills found in backend/skills/. Create one or upload a .zip package on the Skills page.',
+    noSkillsAvailable: 'No skills found in src/skills/. Create one or upload a .zip package on the Skills page.',
   },
   placeholder: {
     stageTag: 'Upcoming Module',

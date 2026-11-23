@@ -24,6 +24,7 @@ import {
 } from '@vicons/material'
 import { useAppStore } from '@/stores/app'
 import AppStatusBadge from '@/components/common/AppStatusBadge.vue'
+import brandLogo from '@/assets/logo.png'
 import type { Component } from 'vue'
 
 interface NavItem {
@@ -110,14 +111,14 @@ onUnmounted(() => {
           @click="router.push('/studio/models')"
         >
           <span
-            class="flex h-7 w-7 items-center justify-center font-mono text-xs font-bold tracking-tight"
-            style="
-              background: var(--g-primary);
-              color: #ffffff;
-              border-radius: var(--g-radius-xs);
-            "
+            class="brand-logo-box g-transition flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden"
           >
-            AG
+            <img
+              :src="brandLogo"
+              :alt="t('app.brand')"
+              class="h-7 w-7 object-contain"
+              style="image-rendering: pixelated"
+            />
           </span>
           <div class="flex items-baseline gap-2">
             <span class="text-[15px] font-medium tracking-tight" style="color: var(--g-text-primary)">
@@ -305,6 +306,15 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+.brand-logo-box {
+  border-radius: var(--g-radius-sm);
+}
+
+:global(html.dark) .brand-logo-box {
+  background: rgba(232, 234, 237, 0.92);
+  padding: 2px;
+}
+
 .nav-item {
   border: none;
   background: transparent;

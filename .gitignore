@@ -9,10 +9,10 @@ venv/
 .ruff_cache/
 .mypy_cache/
 
-# Node / Frontend
+# Node / Web
 node_modules/
-frontend/dist/
-frontend/.vite/
+web/dist/
+web/.vite/
 
 # Runtime data & secrets
 .env

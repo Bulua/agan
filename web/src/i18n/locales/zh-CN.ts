@@ -616,9 +616,9 @@ export default {
     binaryFileDesc: '文件大小 {size}，不支持在线文本编辑。在 Docker 沙箱中可通过只读路径 {path} 访问。',
     selectFileTitle: '选择一个文件查看或编辑',
     emptyTitle: 'skills/ 目录下暂无技能',
-    emptyDesc: '直接读取后端 backend/skills/ 目录下的技能包（支持 SKILL.md、scripts/、references/ 等完整目录结构），无需入库，Docker 构建时随镜像打包。',
+    emptyDesc: '直接读取后端 src/skills/ 目录下的技能包（支持 SKILL.md、scripts/、references/ 等完整目录结构），无需入库，Docker 构建时随镜像打包。',
     goSkillsManage: '前往技能管理',
-    noSkillsAvailable: 'backend/skills/ 目录下暂无可用技能，请先前往「技能」页面创建或上传 .zip 技能包。',
+    noSkillsAvailable: 'src/skills/ 目录下暂无可用技能，请先前往「技能」页面创建或上传 .zip 技能包。',
   },
   placeholder: {
     stageTag: '即将上线',

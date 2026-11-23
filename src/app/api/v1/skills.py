@@ -54,7 +54,7 @@ def _summary_to_dto(summary: SkillSummary) -> SkillSummaryDTO:
 async def list_filesystem_skills(
     search: str | None = Query(default=None),
 ) -> SkillListDTO:
-    """List all skill folders directly from `backend/skills/` with their nested file trees."""
+    """List all skill folders directly from `src/skills/` with their nested file trees."""
     root = settings.resolved_skills_dir
     summaries = list_skills(root, search=search)
     return SkillListDTO(
@@ -87,7 +87,7 @@ async def upload_skill_zip(
     skill_name: str | None = Form(default=None),
     overwrite: bool = Form(default=False),
 ) -> SkillSummaryDTO:
-    """Upload and safely extract a `.zip` skill package into `backend/skills/<name>/`."""
+    """Upload and safely extract a `.zip` skill package into `src/skills/<name>/`."""
     raw = await file.read()
     try:
         summary = import_skill_zip(
