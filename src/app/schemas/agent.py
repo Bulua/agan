@@ -42,13 +42,16 @@ class AgentGuardrails(BaseModel):
     repeat_threshold: int = Field(default=3, ge=2, le=10)
 
 
+SYSTEM_PROMPT_MAX_LENGTH = 20_000
+
+
 class AgentCreate(BaseModel):
     name: str = Field(..., min_length=1, max_length=120)
     role: AgentRole = AgentRole.GENERAL
     description: str = Field(default="", max_length=2000)
     chat_model_id: str = Field(..., min_length=1)
     loop_engine: str = Field(default="react")
-    system_prompt: str = Field(default="", max_length=20000)
+    system_prompt: str = Field(default="", max_length=SYSTEM_PROMPT_MAX_LENGTH)
     temperature: float | None = Field(default=None, ge=0.0, le=2.0)
     sandbox_mode: str = Field(default="simulated")
     sandbox_image: str = Field(default="agan-ctf-sandbox:latest", max_length=200)
@@ -68,7 +71,7 @@ class AgentUpdate(BaseModel):
     description: str | None = Field(default=None, max_length=2000)
     chat_model_id: str | None = None
     loop_engine: str | None = None
-    system_prompt: str | None = Field(default=None, max_length=20000)
+    system_prompt: str | None = Field(default=None, max_length=SYSTEM_PROMPT_MAX_LENGTH)
     temperature: float | None = Field(default=None, ge=0.0, le=2.0)
     sandbox_mode: str | None = None
     sandbox_image: str | None = Field(default=None, max_length=200)

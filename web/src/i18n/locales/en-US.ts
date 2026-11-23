@@ -56,6 +56,23 @@ export default {
     ms: 'ms',
     paginationSummary: 'Showing {start}–{end} of {total}',
   },
+  prompts: {
+    search: 'Search by prompt name',
+    startDate: 'Start date',
+    endDate: 'End date',
+    add: 'New prompt',
+    edit: 'Edit prompt',
+    name: 'Name',
+    content: 'Prompt content',
+    empty: 'No prompt templates yet',
+    noMatches: 'No matching prompts',
+    createdAt: 'Created',
+    updatedAt: 'Last edited',
+    characters: 'Characters',
+    selectTemplate: 'Select a prompt template',
+    applyTemplate: 'Use in editor',
+    deleteDescription: 'Delete “{name}”? Agents keep any text already copied from this template.',
+  },
   models: {
     title: 'LLM Model Management',
     subtitle:
@@ -646,10 +663,6 @@ export default {
       mcp: {
         title: 'MCP Server Management',
         desc: 'Connect external Stdio / SSE MCP servers (GDB, IDA, Playwright) with automatic tool discovery and health checks.',
-      },
-      prompts: {
-        title: 'Prompt Templates',
-        desc: 'Versioned System, Solve, Plan, and Reflexion templates with live {{variable}} interpolation preview.',
       },
       skills: {
         title: 'Skills Library',

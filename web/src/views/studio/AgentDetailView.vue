@@ -49,6 +49,7 @@ import AppStatusBadge from '@/components/common/AppStatusBadge.vue'
 import AppEmptyState from '@/components/common/AppEmptyState.vue'
 import AppMarkdown from '@/components/common/AppMarkdown.vue'
 import AgentActivityTimeline from '@/components/chat/AgentActivityTimeline.vue'
+import PromptTemplatePicker from '@/components/studio/PromptTemplatePicker.vue'
 import ToolTestModal from '@/views/studio/ToolTestModal.vue'
 import { agentsApi } from '@/api/agents'
 import { chatApi } from '@/api/chat'
@@ -909,6 +910,7 @@ onUnmounted(() => {
                     </NButton>
                   </div>
 
+                  <PromptTemplatePicker :key="agentId" @apply="form.system_prompt = $event" />
                   <NInput
                     v-model:value="form.system_prompt"
                     type="textarea"

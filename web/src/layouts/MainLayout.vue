@@ -25,6 +25,7 @@ import {
 import { useAppStore } from '@/stores/app'
 import AppStatusBadge from '@/components/common/AppStatusBadge.vue'
 import brandLogo from '@/assets/logo.png'
+import darkBrandLogo from '@/assets/logo-dark.png'
 import type { Component } from 'vue'
 
 interface NavItem {
@@ -52,7 +53,7 @@ const studioNav: NavItem[] = [
   { key: 'tools', path: '/studio/tools', labelKey: 'nav.tools', icon: BuildOutlined, ready: true },
   { key: 'agents', path: '/studio/agents', labelKey: 'nav.agents', icon: SmartToyOutlined, ready: true },
   { key: 'mcp', path: '/studio/mcp', labelKey: 'nav.mcp', icon: HubOutlined, ready: true },
-  { key: 'prompts', path: '/studio/prompts', labelKey: 'nav.prompts', icon: DescriptionOutlined },
+  { key: 'prompts', path: '/studio/prompts', labelKey: 'nav.prompts', icon: DescriptionOutlined, ready: true },
   { key: 'skills', path: '/studio/skills', labelKey: 'nav.skills', icon: AutoAwesomeOutlined, ready: true },
   { key: 'knowledge', path: '/studio/knowledge', labelKey: 'nav.knowledge', icon: MenuBookOutlined },
   { key: 'memory', path: '/studio/memory', labelKey: 'nav.memory', icon: MemoryOutlined, ready: true },
@@ -114,10 +115,10 @@ onUnmounted(() => {
             class="brand-logo-box g-transition flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden"
           >
             <img
-              :src="brandLogo"
+              :src="appStore.themeMode === 'dark' ? darkBrandLogo : brandLogo"
               :alt="t('app.brand')"
-              class="h-7 w-7 object-contain"
-              style="image-rendering: pixelated"
+              class="brand-logo object-contain"
+              :class="appStore.themeMode === 'dark' ? 'h-8 w-8' : 'brand-logo-light h-7 w-7'"
             />
           </span>
           <div class="flex items-baseline gap-2">
@@ -310,9 +311,13 @@ onUnmounted(() => {
   border-radius: var(--g-radius-sm);
 }
 
-:global(html.dark) .brand-logo-box {
-  background: rgba(232, 234, 237, 0.92);
-  padding: 2px;
+.brand-logo {
+  image-rendering: pixelated;
+}
+
+.brand-logo-light {
+  /* The visible artwork sits 53 px below the center of the 512 px logo. */
+  transform: translateY(-10.35%);
 }
 
 .nav-item {

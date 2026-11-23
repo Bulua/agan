@@ -47,8 +47,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'studio/prompts',
         name: 'StudioPrompts',
-        component: () => import('@/views/ModulePlaceholderView.vue'),
-        meta: { moduleKey: 'prompts' },
+        component: () => import('@/views/studio/PromptsView.vue'),
       },
       {
         path: 'studio/skills',

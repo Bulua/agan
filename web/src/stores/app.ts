@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { i18n, setAppLocale, type AppLocale } from '@/i18n'
 import { apiClient } from '@/api/client'
+import darkBrandLogo from '@/assets/logo-dark.png'
 
 export type ThemeMode = 'light' | 'dark'
 
@@ -26,6 +27,12 @@ export const useAppStore = defineStore('app', () => {
     themeMode.value = mode
     localStorage.setItem(THEME_STORAGE_KEY, mode)
     document.documentElement.classList.toggle('dark', mode === 'dark')
+    const iconUrl = mode === 'dark' ? darkBrandLogo : `${import.meta.env.BASE_URL}favicon.png`
+    document.head
+      .querySelectorAll<HTMLLinkElement>('link[rel="icon"], link[rel="apple-touch-icon"]')
+      .forEach((link) => {
+        link.href = iconUrl
+      })
   }
 
   function toggleTheme(): void {

@@ -22,6 +22,7 @@ import {
 } from 'naive-ui'
 import { AutoAwesomeOutlined, SaveOutlined } from '@vicons/material'
 import AppFormDrawer from '@/components/common/AppFormDrawer.vue'
+import PromptTemplatePicker from '@/components/studio/PromptTemplatePicker.vue'
 import { agentsApi } from '@/api/agents'
 import { modelsApi } from '@/api/models'
 import { toolsApi } from '@/api/tools'
@@ -264,12 +265,15 @@ async function handleSave(): Promise<void> {
             </NButton>
           </div>
         </template>
-        <NInput
-          v-model:value="form.system_prompt"
-          type="textarea"
-          :rows="4"
-          :placeholder="t('agents.form.systemPromptPh')"
-        />
+        <div class="flex w-full min-w-0 flex-col gap-2">
+          <PromptTemplatePicker v-if="show" @apply="form.system_prompt = $event" />
+          <NInput
+            v-model:value="form.system_prompt"
+            type="textarea"
+            :rows="4"
+            :placeholder="t('agents.form.systemPromptPh')"
+          />
+        </div>
       </NFormItem>
 
       <!-- Bound Tools Multi-Select -->

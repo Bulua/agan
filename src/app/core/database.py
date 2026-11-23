@@ -46,6 +46,7 @@ async def init_db() -> None:
     import app.models.chat  # noqa: F401 - register chat models on metadata
     import app.models.llm  # noqa: F401 - register models on metadata
     import app.models.mcp  # noqa: F401 - register mcp models on metadata
+    import app.models.prompt  # noqa: F401 - register prompt models on metadata
     import app.models.session  # noqa: F401 - register session models on metadata
 
     async with engine.begin() as conn:

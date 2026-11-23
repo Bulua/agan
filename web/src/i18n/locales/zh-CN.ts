@@ -56,6 +56,23 @@ export default {
     ms: 'ms',
     paginationSummary: '显示第 {start}–{end} 条，共 {total} 条',
   },
+  prompts: {
+    search: '搜索提示词名称',
+    startDate: '开始日期',
+    endDate: '结束日期',
+    add: '新建提示词',
+    edit: '编辑提示词',
+    name: '名称',
+    content: '提示词正文',
+    empty: '暂无提示词模板',
+    noMatches: '没有匹配的提示词',
+    createdAt: '创建时间',
+    updatedAt: '修改时间',
+    characters: '字数',
+    selectTemplate: '选择提示词模板',
+    applyTemplate: '填入编辑框',
+    deleteDescription: '确定删除提示词「{name}」？已填入 Agent 的正文会保留。',
+  },
   models: {
     title: 'LLM 模型管理',
     subtitle:
@@ -644,10 +661,6 @@ export default {
       mcp: {
         title: 'MCP 服务管理',
         desc: '接入外部 Stdio / SSE MCP Server（如 GDB MCP、IDA MCP、Playwright MCP），自动发现并测试远端工具。',
-      },
-      prompts: {
-        title: '提示词版本管理',
-        desc: '管理 System Prompt、解题模板、反思模板的历史版本，支持 {{challenge_desc}} 等变量插值实时预览。',
       },
       skills: {
         title: 'Skills 技能包管理',
